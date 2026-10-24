@@ -2,11 +2,19 @@ import type { MoviesProps } from '../types'
 
 function Movies({ source, title, releaseYear, rating }: MoviesProps) {
   return (
-    <article>
-      <img src={source} alt={`Plakat filmu ${title}`} width="160" height="240" />
-      <h3>{title}</h3>
-      <p>Rok wydania: {releaseYear}</p>
-      <p>Ocena: {rating}/10</p>
+    <article className="card h-100">
+      <img
+        className="card-img-top"
+        src={source}
+        alt={`Plakat filmu ${title}`}
+        width="160"
+        height="240"
+      />
+      <div className="card-body">
+        <h3 className="card-title h5">{title}</h3>
+        <p className="card-text">Rok wydania: {releaseYear}</p>
+        <p className="card-text">Ocena: {rating}/10</p>
+      </div>
     </article>
   )
 }

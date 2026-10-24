@@ -40,6 +40,14 @@ export const albums: Album[] = [
       { title: 'Hallowed Be Thy Name', duration: '7:14' },
     ],
   },
+  {
+    source: '/albums/still_life.jpg',
+    title: 'Still Life',
+    artist: 'Opeth',
+    genre: 'Progressive metal',
+    releaseYear: 1999,
+    songs: [],
+  },
 ]
 
 movies.sort((a, b) => a.title.localeCompare(b.title, 'pl'))

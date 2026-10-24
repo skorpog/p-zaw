@@ -12,76 +12,76 @@ import {
 
 function App() {
   return (
-    <main>
-      <section>
-        <h2>Filmy</h2>
-        <ul>
+    <main className="container py-4">
+      <section className="mb-5">
+        <h2 className="mb-3">Filmy</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {movies.map((movie) => (
-            <li key={movie.title}>
+            <div className="col" key={movie.title}>
               <Movies
                 source={movie.source}
                 title={movie.title}
                 releaseYear={movie.releaseYear}
                 rating={movie.rating}
               />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section>
-        <h2>Filmy wydane po 2010 roku</h2>
-        <ul>
+      <section className="mb-5">
+        <h2 className="mb-3">Filmy wydane po 2010 roku</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {moviesAfter2010.map((movie) => (
-            <li key={movie.title}>
+            <div className="col" key={movie.title}>
               <Movies
                 source={movie.source}
                 title={movie.title}
                 releaseYear={movie.releaseYear}
                 rating={movie.rating}
               />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section>
-        <h2>Książki</h2>
-        <ul>
+      <section className="mb-5">
+        <h2 className="mb-3">Książki</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {books.map((book) => (
-            <li key={book.title}>
+            <div className="col" key={book.title}>
               <Books
                 source={book.source}
                 title={book.title}
                 releaseYear={book.releaseYear}
                 pages={book.pages}
               />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section>
-        <h2>Książki od najnowszego wydania</h2>
-        <ul>
+      <section className="mb-5">
+        <h2 className="mb-3">Książki od najnowszego wydania</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {booksByReleaseYear.map((book) => (
-            <li key={book.title}>
+            <div className="col" key={book.title}>
               <Books
                 source={book.source}
                 title={book.title}
                 releaseYear={book.releaseYear}
                 pages={book.pages}
               />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section>
-        <h2>Albumy</h2>
-        <ul>
+      <section className="mb-5">
+        <h2 className="mb-3">Albumy</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {albums.map((album) => (
-            <li key={album.title}>
+            <div className="col" key={album.title}>
               <Albums
                 source={album.source}
                 title={album.title}
@@ -90,15 +90,15 @@ function App() {
                 releaseYear={album.releaseYear}
                 songs={album.songs}
               />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section>
-        <h2>Album z największą liczbą utworów</h2>
-        <ul>
-          <li key={albumWithMostSongs.title}>
+      <section className="mb-5">
+        <h2 className="mb-3">Album z największą liczbą utworów</h2>
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+          <div className="col" key={albumWithMostSongs.title}>
             <Albums
               source={albumWithMostSongs.source}
               title={albumWithMostSongs.title}
@@ -107,8 +107,8 @@ function App() {
               releaseYear={albumWithMostSongs.releaseYear}
               songs={albumWithMostSongs.songs}
             />
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
     </main>
   )
