@@ -6,7 +6,7 @@ function Albums({ source, title, artist, genre, releaseYear, songs }: AlbumsProp
   if (songs.length === 0) {
     songsContent = (
       <div className="alert alert-info mb-0" role="alert">
-        Brak utworów w tym albumie.
+        Brak utworów
       </div>
     )
   } else {

@@ -1,5 +1,6 @@
 import Albums from './components/Albums'
 import Books from './components/Books'
+import CollapsibleSection from './components/CollapsibleSection'
 import Movies from './components/Movies'
 import {
   albumWithMostSongs,
@@ -13,8 +14,7 @@ import {
 function App() {
   return (
     <main className="container py-4">
-      <section className="mb-5">
-        <h2 className="mb-3">Filmy</h2>
+      <CollapsibleSection title="Filmy">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {movies.map((movie) => (
             <div className="col" key={movie.title}>
@@ -27,10 +27,9 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
+      </CollapsibleSection>
 
-      <section className="mb-5">
-        <h2 className="mb-3">Filmy wydane po 2010 roku</h2>
+      <CollapsibleSection title="Filmy wydane po 2010 roku">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {moviesAfter2010.map((movie) => (
             <div className="col" key={movie.title}>
@@ -43,10 +42,9 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
+      </CollapsibleSection>
 
-      <section className="mb-5">
-        <h2 className="mb-3">Książki</h2>
+      <CollapsibleSection title="Książki">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {books.map((book) => (
             <div className="col" key={book.title}>
@@ -59,10 +57,9 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
+      </CollapsibleSection>
 
-      <section className="mb-5">
-        <h2 className="mb-3">Książki od najnowszego wydania</h2>
+      <CollapsibleSection title="Książki od najnowszego wydania">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {booksByReleaseYear.map((book) => (
             <div className="col" key={book.title}>
@@ -75,10 +72,9 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
+      </CollapsibleSection>
 
-      <section className="mb-5">
-        <h2 className="mb-3">Albumy</h2>
+      <CollapsibleSection title="Albumy">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {albums.map((album) => (
             <div className="col" key={album.title}>
@@ -93,10 +89,9 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
+      </CollapsibleSection>
 
-      <section className="mb-5">
-        <h2 className="mb-3">Album z największą liczbą utworów</h2>
+      <CollapsibleSection title="Album z największą liczbą utworów">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           <div className="col" key={albumWithMostSongs.title}>
             <Albums
@@ -109,7 +104,7 @@ function App() {
             />
           </div>
         </div>
-      </section>
+      </CollapsibleSection>
     </main>
   )
 }

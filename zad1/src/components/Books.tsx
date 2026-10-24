@@ -12,6 +12,9 @@ function Books({ source, title, releaseYear, pages }: BooksProps) {
       />
       <div className="card-body">
         <h3 className="card-title h5">{title}</h3>
+        {releaseYear < 2000 && (
+          <span className="badge text-bg-secondary mb-2">Klasyka</span>
+        )}
         <p className="card-text">Rok wydania: {releaseYear}</p>
         <p className="card-text">Liczba stron: {pages}</p>
       </div>
