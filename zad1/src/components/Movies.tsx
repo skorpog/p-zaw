@@ -1,18 +1,12 @@
-interface MoviesProps {
-  // Ścieżka do plakatu filmu w katalogu public.
-  source: string
-  // Tytuł filmu.
-  title: string
-  // Rok wydania filmu.
-  releaseYear: number
-}
+import type { MoviesProps } from '../types'
 
-function Movies({ source, title, releaseYear }: MoviesProps) {
+function Movies({ source, title, releaseYear, rating }: MoviesProps) {
   return (
     <article>
       <img src={source} alt={`Plakat filmu ${title}`} width="160" height="240" />
       <h3>{title}</h3>
       <p>Rok wydania: {releaseYear}</p>
+      <p>Ocena: {rating}/10</p>
     </article>
   )
 }

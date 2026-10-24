@@ -1,26 +1,5 @@
 import Song from './Song'
-
-interface Track {
-  // Tytuł utworu.
-  title: string
-  // Czas trwania w formacie minuty:sekundy.
-  duration: string
-}
-
-interface AlbumsProps {
-  // Ścieżka do okładki albumu w katalogu public.
-  source: string
-  // Tytuł albumu.
-  title: string
-  // Nazwa wykonawcy lub zespołu.
-  artist: string
-  // Gatunek muzyczny albumu.
-  genre: string
-  // Rok wydania albumu.
-  releaseYear: number
-  // Lista utworów znajdujących się na albumie.
-  songs: Track[]
-}
+import type { AlbumsProps } from '../types'
 
 function Albums({ source, title, artist, genre, releaseYear, songs }: AlbumsProps) {
   return (

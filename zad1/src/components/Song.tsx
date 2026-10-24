@@ -1,9 +1,4 @@
-interface SongProps {
-  // Tytuł utworu.
-  title: string
-  // Czas trwania utworu w formacie minuty:sekundy.
-  duration: string
-}
+import type { SongProps } from '../types'
 
 function Song({ title, duration }: SongProps) {
   return (

@@ -1,72 +1,14 @@
 import Albums from './components/Albums'
 import Books from './components/Books'
 import Movies from './components/Movies'
-
-type Movie = {
-  source: string
-  title: string
-  releaseYear: number
-}
-
-type Book = {
-  source: string
-  title: string
-  releaseYear: number
-  pages: number
-}
-
-type Track = {
-  title: string
-  duration: string
-}
-
-type Album = {
-  source: string
-  title: string
-  artist: string
-  genre: string
-  releaseYear: number
-  songs: Track[]
-}
-
-const movies: Movie[] = [
-  { source: '/movies/inception.jpg', title: 'Incepcja', releaseYear: 2010 },
-  { source: '/movies/the_matrix.jpg', title: 'Matrix', releaseYear: 1999 },
-  { source: '/movies/the_lord_of_the_rings.jpg', title: 'Władca Pierścieni: Drużyna Pierścienia', releaseYear: 2001 },
-]
-
-const books: Book[] = [
-  { source: '/books/dune.jpg', title: 'Diuna', releaseYear: 1965, pages: 688 },
-  { source: '/books/the_hobbit.jpg', title: 'Hobbit', releaseYear: 1937, pages: 320 },
-  { source: '/books/the_little_prince.jpg', title: 'Mały Książę', releaseYear: 1943, pages: 112 },
-]
-
-const albums: Album[] = [
-  {
-    source: '/albums/master_of_puppets.jpg',
-    title: 'Master of Puppets',
-    artist: 'Metallica',
-    genre: 'Thrash metal',
-    releaseYear: 1986,
-    songs: [
-      { title: 'Battery', duration: '5:13' },
-      { title: 'Master of Puppets', duration: '8:35' },
-      { title: 'Orion', duration: '8:27' },
-    ],
-  },
-  {
-    source: '/albums/the_number_of_the_beast.jpg',
-    title: 'The Number of the Beast',
-    artist: 'Iron Maiden',
-    genre: 'Heavy metal',
-    releaseYear: 1982,
-    songs: [
-      { title: 'Invaders', duration: '3:23' },
-      { title: 'The Number of the Beast', duration: '4:52' },
-      { title: 'Hallowed Be Thy Name', duration: '7:14' },
-    ],
-  },
-]
+import {
+  albumWithMostSongs,
+  albums,
+  books,
+  booksByReleaseYear,
+  movies,
+  moviesAfter2010,
+} from './data'
 
 function App() {
   return (
@@ -80,6 +22,23 @@ function App() {
                 source={movie.source}
                 title={movie.title}
                 releaseYear={movie.releaseYear}
+                rating={movie.rating}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Filmy wydane po 2010 roku</h2>
+        <ul>
+          {moviesAfter2010.map((movie) => (
+            <li key={movie.title}>
+              <Movies
+                source={movie.source}
+                title={movie.title}
+                releaseYear={movie.releaseYear}
+                rating={movie.rating}
               />
             </li>
           ))}
@@ -90,6 +49,22 @@ function App() {
         <h2>Książki</h2>
         <ul>
           {books.map((book) => (
+            <li key={book.title}>
+              <Books
+                source={book.source}
+                title={book.title}
+                releaseYear={book.releaseYear}
+                pages={book.pages}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Książki od najnowszego wydania</h2>
+        <ul>
+          {booksByReleaseYear.map((book) => (
             <li key={book.title}>
               <Books
                 source={book.source}
@@ -117,6 +92,22 @@ function App() {
               />
             </li>
           ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Album z największą liczbą utworów</h2>
+        <ul>
+          <li key={albumWithMostSongs.title}>
+            <Albums
+              source={albumWithMostSongs.source}
+              title={albumWithMostSongs.title}
+              artist={albumWithMostSongs.artist}
+              genre={albumWithMostSongs.genre}
+              releaseYear={albumWithMostSongs.releaseYear}
+              songs={albumWithMostSongs.songs}
+            />
+          </li>
         </ul>
       </section>
     </main>

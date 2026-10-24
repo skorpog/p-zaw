@@ -1,13 +1,4 @@
-interface BooksProps {
-  // Ścieżka do okładki książki w katalogu public.
-  source: string
-  // Tytuł książki.
-  title: string
-  // Rok wydania książki.
-  releaseYear: number
-  // Liczba stron książki.
-  pages: number
-}
+import type { BooksProps } from '../types'
 
 function Books({ source, title, releaseYear, pages }: BooksProps) {
   return (
