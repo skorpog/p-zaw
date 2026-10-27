@@ -1,5 +1,12 @@
 import type { AlbumsProps } from '../types'
 
+function handleSongClick(
+  songtitle: string, 
+  albumtitle: string
+)
+{
+  console.log(`Wybrano ${songtitle} z ${albumtitle}`)
+}
 function Albums({ source, title, artist, genre, releaseYear, songs }: AlbumsProps) {
   let songsContent
 
@@ -22,7 +29,9 @@ function Albums({ source, title, artist, genre, releaseYear, songs }: AlbumsProp
           </thead>
           <tbody>
             {songs.map((track, index) => (
-              <tr key={track.title}>
+              <tr key={track.title}
+              onClick = {() => handleSongClick(track.title, title)}
+              >
                 <th scope="row">{index + 1}</th>
                 <td>{track.title}</td>
                 <td className="text-end text-nowrap">{track.duration}</td>
