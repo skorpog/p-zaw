@@ -2,6 +2,7 @@ import Albums from './components/Albums'
 import Books from './components/Books'
 import CollapsibleSection from './components/CollapsibleSection'
 import Movies from './components/Movies'
+import {useState} from 'react'
 import {
   albumWithMostSongs,
   albums,
@@ -12,8 +13,23 @@ import {
 } from './data'
 
 function App() {
+  const[moviesearch, setmoviesearch] = useState('')
+  const[booksearch, setbooksearch] = useState('')
+  const[albumsearch, setalbumsearch] = useState('')
   return (
     <main className="container py-4">
+
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Wpisz tytuł"
+        value = {moviesearch}
+        onChange ={(event) => {
+          setmoviesearch(event.target.value)
+          console.log(event.target.value)
+        }}
+      />
+      <p>Wpisany tekst: {moviesearch}</p>
       <CollapsibleSection title="Filmy">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {movies.map((movie) => (
@@ -43,7 +59,18 @@ function App() {
           ))}
         </div>
       </CollapsibleSection>
-
+  
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Wpisz tytuł"
+        value = {booksearch}
+        onChange ={(event) => {
+          setbooksearch(event.target.value)
+          console.log(event.target.value)
+        }}
+      />
+      <p>Wpisany tekst: {booksearch}</p>
       <CollapsibleSection title="Książki">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {books.map((book) => (
@@ -73,7 +100,17 @@ function App() {
           ))}
         </div>
       </CollapsibleSection>
-
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Wpisz tytuł"
+          value = {albumsearch}
+          onChange ={(event) => {
+            setalbumsearch(event.target.value)
+            console.log(event.target.value)
+          }}
+        />
+        <p>Wpisany tekst: {albumsearch}</p>
       <CollapsibleSection title="Albumy">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
           {albums.map((album) => (
@@ -107,6 +144,7 @@ function App() {
       </CollapsibleSection>
     </main>
   )
+
 }
 
 export default App
