@@ -16,6 +16,9 @@ function App() {
   const[moviesearch, setmoviesearch] = useState('')
   const[booksearch, setbooksearch] = useState('')
   const[albumsearch, setalbumsearch] = useState('')
+
+  const filteredmovies = movies.filter((movie) =>
+  movie.title.toLowerCase().includes(moviesearch.toLowerCase()))
   return (
     <main className="container py-4">
 
@@ -32,7 +35,7 @@ function App() {
       <p>Wpisany tekst: {moviesearch}</p>
       <CollapsibleSection title="Filmy">
         <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-          {movies.map((movie) => (
+          {filteredmovies.map((movie) => (
             <div className="col" key={movie.title}>
               <Movies
                 source={movie.source}
@@ -43,6 +46,9 @@ function App() {
             </div>
           ))}
         </div>
+        {filteredmovies.length === 0 && (
+          <p className="mt-3">Nie znaleziono filmów</p>
+        )}
       </CollapsibleSection>
 
       <CollapsibleSection title="Filmy wydane po 2010 roku">
